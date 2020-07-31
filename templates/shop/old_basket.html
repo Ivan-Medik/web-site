@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'basket_css/style.min.css' %}">
+    <title>Payment-Soya-arganic</title>
+</head>
+<body>
+    <section class="payment">
+    <a href="/" class="prev-arrow" id="prev-arrow">
+        <img src="{% static 'basket_img/prew-arrow.png' %}" alt="prev-arrow">
+    </a>
+    <div class="container">
+        <div class="header">
+            <div class="header-title">
+                <h3>soyaorganic</h3>
+            </div>
+            <div class="header-text">
+                <p>≈30 минут</p>
+                <img src="{% static 'basket_img/logo.png' %}" alt="logo">
+                <p>Ленинский 58</p>
+            </div>
+        </div>
+        <div class="payment-title">
+            <h4>Оплата заказа</h4>
+        </div>
+        <div class="payment-contant-list">
+            {% for product in basket_list %}
+                <div class="payment-contant-item">
+                    <p class="payment-contant-subtitle">{{ product.name }}</p> 
+                    <div class="payment-item-sum">
+                        <p class="payment-current-count" id="current-count">
+                            {{ product.count }}
+                        </p>
+                        <p class="payment-multiply"> x </p>
+                        <p class="payment-current-price" id="current-price">
+                            {{ product.price }}
+                        </p>
+                    </div>
+                    <a href="#" class="delete" id="delete">
+                        <img src="{% static 'basket_img/delete-item.png' %}" alt="delete">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>   
+    </div>
+    <a href="#" class="footer">
+        <p class="money">Перейти к оплате {{ total.count }}</p>
+    </a>
+</section>
+    <!--script src="js/script.min.js"></script-->
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'menu_css/style.min3.css' %}">
+    <title>Menu-Soya-arganic</title>
+</head>
+<body>
+    <section class="menu">
+    <a href="/" class="prew-arrow" id="prew-arrow">
+        <img src="{% static 'menu_img/prew-arrow.png' %}" alt="prew-arrow">
+    </a>
+    <div class="container">
+        <div class="header">
+            <div class="header-title">
+                <h3>soyaorganic</h3>
+            </div>
+            <div class="header-text">
+                <p>≈30 минут</p>
+                <img src="{% static 'menu_img/logo.png' %}" alt="logo">
+                <a href="/map/" class="header-adress" >Ленинский 58</a>
+            </div>
+        </div>
+        <div class="menu-contant">
+            {% for product in product_list %}
+                {% if product.background == 'зеленый' %}
+                    <div class="contant-item">
+                        <div class="contant-item-picture">
+                            <img src="{{ product.image.url }}" alt="dish">
+                        </div>
+                        <div class="contant-item-fon contant-item-fon-green">
+                            <div class="contant-item-about">
+                                <p>{{ product.kkal }} ккал</p>
+                                <p>
+                                    {{ product.description }}
+                                </p>
+                            </div>
+                            <div class="contant-item-price">
+                                <h4 class="contant-price-top">
+                                    {{ product.name }}
+                                </h4>
+                                <div class="contant-price-bottom">
+                                    <p class="contant-price-number">{{ product.price }}₽</p>
+                                    <div class="contant-price-count">  
+                                        <a id="click-minus" class="click-minus" href="/menu/minus/{{ product.name }}/">
+                                            <img src="{% static 'menu_img/conrtent-counter-minus.png' %}" alt="minus">
+                                        </a>
+                                        <p class="counter-value">
+                                            {% if indicator.0 == True %}
+                                                {% if check %}
+                                                {% endif %}
+                                            {% endif %}
+                                            {% for i in products_list %}
+
+                                                {% if i.name == product.name %}
+
+                                                        {{ i.count }}
+                                                        {% if check == True %}
+                                                        {% endif %}
+
+                                                {% endif %}
+
+                                            {% endfor %}
+                                            {% if indicator.0 == False %}
+
+                                                0
+
+                                            {% endif %}
+                                        </p>
+                                        <a id="click-plus" class="click-plus" href="/menu/plus/{{ product.name }}/">
+                                            <img src="{% static 'menu_img/conrtent-counter-plus.png' %}" alt="plus">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% elif product.background == 'голубой' %}
+                    <div class="contant-item">
+                        <div class="contant-item-picture">
+                            <img src="{{ product.image.url }}" alt="dish">
+                        </div>
+                        <div class="contant-item-fon contant-item-fon-blue">
+                            <div class="contant-item-about">
+                                <p>{{ product.kkal }} ккал</p>
+                                <p>
+                                    {{ product.description }}
+                                </p>
+                            </div>
+                            <div class="contant-item-price">
+                                <h4 class="contant-price-top">
+                                    {{ product.name }}
+                                </h4>
+                                <div class="contant-price-bottom">
+                                    <p class="contant-price-number">{{ product.price }}₽</p>
+                                    <div class="contant-price-count">  
+                                        <a id="click-minus" class="click-minus" href="/menu/minus/{{ product.name }}/">
+                                            <img src="{% static 'menu_img/conrtent-counter-minus.png' %}" alt="minus">
+                                        </a>
+                                        <p class="counter-value">
+                                            {% if indicator.0 == True %}
+                                                {% if check %}
+                                                {% endif %}
+                                            {% endif %}
+                                            {% for i in products_list %}
+
+                                                {% if i.name == product.name %}
+
+                                                        {{ i.count }}
+                                                        {% if check == True %}
+                                                        {% endif %}
+
+                                                {% endif %}
+
+                                            {% endfor %}
+                                            {% if indicator.0 == False %}
+
+                                                0
+
+                                            {% endif %}
+                                        </p>
+                                        <a id="click-plus" class="click-plus" href="/menu/plus/{{ product.name }}/#">
+                                            <img src="{% static 'menu_img/conrtent-counter-plus.png' %}" alt="plus">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <a href="/basket/" class="footer">
+        <p class="money">{{ order_price }}₽</p>
+    </a>
+</section>
+    <script src="{% static 'menu_js/script.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main_page_css/style.min.css' %}">
+    <title>Soya-arganic</title>
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'main_page_img/logo.png' %}" alt="logo">
+        </div>
+        <div class="header-top-desctop">
+            <div class="header-text">
+                <h3>
+                    Привезем за 15 минут в пределах МКАД
+                </h3>
+                <a href="/map/" class="btn header-btn">
+                    Проверить адрес доставки
+                </a>
+            </div>
+            <div class="header-emoji">
+
+            </div>
+        </div>
+        <div class="header-top-mobile">
+            <h3 class="header-mobile-title">soyaorganic</h3>
+            <div class="header-mobile-text">
+                <p>≈30 минут</p>
+                <img src="{% static 'main_page_img/logo-mobile.png' %}" alt="mini-logo">
+                <p>Ленинский 58</p>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-left-row">
+                <a href="/menu/" class="header-item header-item-all">
+                    <h4>Все блюда</h4>
+                    <img class="header-item-all-1" src="{% static 'main_page_img/header-item-all-1.png' %}" alt="all-dish">
+                    <img class="header-item-all-2" src="{% static 'main_page_img/header-item-all-2.png' %}" alt="all-dish">
+                </a>
+                <a href="/beverages/" class="header-item header-item-drinks">
+                    <h4>Напитки и снэки</h4>
+                    <img class="header-item-drinks-1" src="{% static 'main_page_img/header-item-drinks-1.png' %}" alt="drinks">
+                    <img class="header-item-drinks-2" src="{% static 'main_page_img/header-item-drinks-2.png' %}" alt="drinks">
+                </a>
+            </div>
+            <div class="header-center-row">
+                <a href="/fruits/" class="header-item header-item-fruits">
+                    <h4>Фрукты</h4>
+                    <img src="{% static 'main_page_img/header-item-fruits.png' %}" alt="fruits">
+                </a>
+                <a href="/basket/" class="header-item header-item-order">
+                    <h4>Ваш
+                        заказ
+                    </h4>
+                    {% if delivery == 'True' %}
+                        <p>
+                            Ожидание <br>
+                            ≈ {{ timeout }} минут/а/ы
+                        </p>
+                        <p class="italic">Доставит заказ <span class="bold">Александр</span></p>
+                        <p class="header-item-phone">+79992111177</p>
+                    {% else %}
+                        <p>
+                            Вы еще ничего<br>
+                            не заказали<br>
+                        </p>
+                    {% endif %}
+                </a>
+                <a href="/redirect_whatsapp/" class="header-item header-item-help header-item-help-mobile">
+                    <h4>Помощь</h4>
+                    <p>Можете написать нам в Telegram, WhatsApp :)</p>
+                </a>
+            </div>
+            <a href="/redirect_whatsapp/" class="header-item header-item-help">
+                <h4>Помощь</h4>
+                <p>Можете написать нам в Telegram, WhatsApp :)</p>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>{{ order_price }}₽</p>
+    </footer>
+    <div class="requisites">
+        <div class="requisires-wrapper">
+            <p class="requisites-info">
+                Реквизиты ИП АШУРОВ МАРК ЭЛЬДАРОВИЧ.
+                ИНН: 773181915944,
+                ОГРН: 320774600263230,
+                КПП ,
+                Р/С: 40802810300001550304,
+                Банк: АО «Тинькофф Банк»,
+                БИК: 044525974,
+                К/С: 30101810145250000974
+            </p>
+        </div>
+    </div>
+</header>
+    <script src="{% static 'main_page_js/script.min.js' %}"></script>
+</body>
+</html>

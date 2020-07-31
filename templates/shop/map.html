@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'map_css/style.min.css' %}">
+    <title>Soya-arganic</title>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=bfa75ca7-6be0-4a8b-ad74-b00a180a0b87" type="text/javascript"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <section class="adress">
+    <div class="container">
+        <div class="adress-header">
+            <h3 class="adress-title">soyaorganic</h3>
+            <form action="/map/">
+                <div class="header-input">
+                    <input class="user-adress" placeholder="Введите адрес доставки" type="text" name="user-adress">
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>Вы находитесь здесь?</p>
+            <p class="user-current-adress" id="user-current-adress">Не определено</p>
+        </div>
+    </div>
+</section>
+<div id="map" class="map"></div>
+    <script src="{% static 'map_js/script.min.js' %}"></script>
+</body>
+</html>
